@@ -9,7 +9,7 @@ const PlainNavBar = (): JSX.Element => {
   return (
     <Navbar bg="light" variant="light" expand="lg">
       <Container>
-        <Navbar.Brand href="/">Spleeter Web (Demo)</Navbar.Brand>
+        <Navbar.Brand href="https://jeffreyca.github.io/spleeter-web/">Spleeter Web (Demo)</Navbar.Brand>
       </Container>
     </Navbar>
   );
