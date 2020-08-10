@@ -35,9 +35,8 @@ const playColFormatter: ColumnFormatter<StaticMix> = (cell, row, rowIndex, forma
 };
 
 const downloadFormatter: ColumnFormatter<any> = (cell, row, rowIndex) => {
-  const { url } = row;
   return (
-    <Button variant="success" disabled={!url} href={url}>
+    <Button variant="success" disabled>
       <Download />
     </Button>
   );

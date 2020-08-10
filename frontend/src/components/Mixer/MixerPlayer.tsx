@@ -74,6 +74,8 @@ class MixerPlayer extends React.Component<Props, State> {
         }
       }
     ).toDestination();
+    this.tonePlayers.fadeIn = 0.5;
+    this.tonePlayers.fadeOut = 0.5;
   }
 
   componentWillUnmount(): void {

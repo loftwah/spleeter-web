@@ -5,6 +5,7 @@ import { RouteComponentProps } from 'react-router';
 import { DynamicMix } from '../../models/DynamicMix';
 import PlainNavBar from '../Nav/PlainNavBar';
 import MixerPlayer from './MixerPlayer';
+import { MixData } from '../../DemoData';
 
 interface MatchParams {
   mixId: string;
@@ -29,22 +30,10 @@ class Mixer extends React.Component<RouteComponentProps<MatchParams>, State> {
   }
 
   loadData = (mixId: string): void => {
-    axios
-      .get<DynamicMix>(`/api/mix/dynamic/${mixId}/`)
-      .then(({ data }) => {
-        if (data) {
-          this.setState({ isLoaded: true, data: data });
-        }
-        if (data.status === 'Queued' || data.status === 'In Progress') {
-          this.timeout = setTimeout(() => this.loadData(mixId), 10000);
-        }
-      })
-      .catch(() => {
-        this.setState({
-          isLoaded: true,
-          hasError: true,
-        });
-      });
+    this.setState({
+      isLoaded: true,
+      data: (MixData as any)[mixId],
+    });
   };
 
   componentDidMount(): void {
@@ -56,7 +45,7 @@ class Mixer extends React.Component<RouteComponentProps<MatchParams>, State> {
   }
 
   componentWillUnmount(): void {
-    clearInterval(this.timeout);
+    // clearInterval(this.timeout);
   }
 
   render(): JSX.Element | null {

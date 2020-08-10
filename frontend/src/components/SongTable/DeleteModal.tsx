@@ -55,6 +55,7 @@ class DeleteModal extends React.Component<Props, State> {
    * Called when primary modal button is clicked
    */
   onSubmit = (): void => {
+    /*
     if (!this.props.song) {
       return;
     }
@@ -73,6 +74,7 @@ class DeleteModal extends React.Component<Props, State> {
           errors: [data.error],
         });
       });
+    */
   };
 
   render(): JSX.Element | null {
@@ -88,13 +90,9 @@ class DeleteModal extends React.Component<Props, State> {
           <Modal.Title>Confirm Track Deletion</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {errors.length > 0 && (
-            <Alert variant="danger">
-              {errors.map((val, idx) => (
-                <div key={idx}>{val}</div>
-              ))}
-            </Alert>
-          )}
+          <Alert variant="danger">
+            <div>Functionality disabled for demo purposes.</div>
+          </Alert>
           <div>
             Are you sure you want to delete &ldquo;{song.artist} - {song.title}&rdquo; and all of its mixes?
           </div>
@@ -103,7 +101,7 @@ class DeleteModal extends React.Component<Props, State> {
           <Button variant="outline-secondary" onClick={this.onHide}>
             Cancel
           </Button>
-          <Button variant="danger" onClick={this.onSubmit}>
+          <Button disabled variant="danger" onClick={this.onSubmit}>
             Delete
           </Button>
         </Modal.Footer>

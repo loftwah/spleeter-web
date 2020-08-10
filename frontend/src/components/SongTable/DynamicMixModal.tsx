@@ -40,6 +40,7 @@ class DynamicMixModal extends React.Component<Props, State> {
    * Called when primary modal button is clicked
    */
   onSubmit = (): void => {
+    /*
     if (!this.props.song) {
       return;
     }
@@ -61,6 +62,7 @@ class DynamicMixModal extends React.Component<Props, State> {
           errors: data.errors,
         });
       });
+    */
   };
 
   render(): JSX.Element | null {
@@ -77,19 +79,15 @@ class DynamicMixModal extends React.Component<Props, State> {
         </Modal.Header>
         <Modal.Body>
           Are you sure you want to create the mix? This will take a couple of minutes.
-          {errors.length > 0 && (
-            <Alert variant="danger">
-              {errors.map((val, idx) => (
-                <div key={idx}>{val}</div>
-              ))}
-            </Alert>
-          )}
+          <Alert variant="danger">
+            <div>Functionality disabled for demo purposes.</div>
+          </Alert>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="outline-danger" onClick={this.onHide}>
             Cancel
           </Button>
-          <Button variant="success" onClick={this.onSubmit}>
+          <Button disabled variant="success" onClick={this.onSubmit}>
             Create Mix
           </Button>
         </Modal.Footer>

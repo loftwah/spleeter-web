@@ -1,8 +1,6 @@
-import axios from 'axios';
 import * as React from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { Alert, Button, Modal } from 'react-bootstrap';
 import { SongData } from '../../models/SongData';
-import { StaticMix } from '../../models/StaticMix';
 import StaticMixModalForm from './StaticMixModalForm';
 
 interface Props {
@@ -72,6 +70,7 @@ class StaticMixModal extends React.Component<Props, State> {
    * Called when primary modal button is clicked
    */
   onSubmit = (): void => {
+    /*
     if (!this.props.song) {
       return;
     }
@@ -97,6 +96,7 @@ class StaticMixModal extends React.Component<Props, State> {
           errors: data.errors,
         });
       });
+    */
   };
 
   handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -121,6 +121,9 @@ class StaticMixModal extends React.Component<Props, State> {
           <Modal.Title>Create static mix</Modal.Title>
         </Modal.Header>
         <Modal.Body>
+          <Alert variant="danger">
+            <div>Functionality disabled for demo purposes.</div>
+          </Alert>
           <StaticMixModalForm
             song={song}
             allChecked={allChecked}
@@ -133,7 +136,7 @@ class StaticMixModal extends React.Component<Props, State> {
           <Button variant="outline-danger" onClick={this.onHide}>
             Cancel
           </Button>
-          <Button variant="primary" disabled={allChecked || noneChecked} onClick={this.onSubmit}>
+          <Button variant="primary" disabled onClick={this.onSubmit}>
             Create Mix
           </Button>
         </Modal.Footer>
